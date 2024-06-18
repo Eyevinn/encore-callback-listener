@@ -1,4 +1,4 @@
-# Encore collback listener
+# Encore callback listener
 
 Http server listening for encore callbacks. When a callback indicating a successful job is received,
 the listener can post jobId and Url on a redis queue.
