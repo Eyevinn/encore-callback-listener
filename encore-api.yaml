@@ -3,50 +3,51 @@ info:
   title: Encore OpenAPI
   description: Endpoints for Encore
   contact:
-    name: ""
-    url: ""
-    email: ""
+    name: ''
+    url: ''
+    email: ''
   license:
     name: EUPL-1.2-or-later
     url: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
 servers:
-- url: http://localhost:8080
-  description: Generated server url
+  - url: http://localhost:8080
+    description: Generated server url
 paths:
   /encoreJobs:
     get:
       tags:
-      - encorejob
+        - encorejob
       description: get-encorejob
       operationId: getCollectionResource-encorejob-get_1
       parameters:
-      - name: page
-        in: query
-        description: Zero-based page index (0..N)
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-          default: 0
-      - name: size
-        in: query
-        description: The size of the page to be returned
-        required: false
-        schema:
-          minimum: 1
-          type: integer
-          default: 20
-      - name: sort
-        in: query
-        description: "Sorting criteria in the format: property,(asc|desc). Default\
-          \ sort order is ascending. Multiple sort criteria are supported."
-        required: false
-        schema:
-          type: array
-          items:
-            type: string
+        - name: page
+          in: query
+          description: Zero-based page index (0..N)
+          required: false
+          schema:
+            minimum: 0
+            type: integer
+            default: 0
+        - name: size
+          in: query
+          description: The size of the page to be returned
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            default: 20
+        - name: sort
+          in: query
+          description:
+            "Sorting criteria in the format: property,(asc|desc). Default\
+            \ sort order is ascending. Multiple sort criteria are supported."
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/hal+json:
@@ -60,7 +61,7 @@ paths:
                 type: string
     post:
       tags:
-      - encorejob
+        - encorejob
       description: create-encorejob
       operationId: postCollectionResource-encorejob-post
       requestBody:
@@ -70,7 +71,7 @@ paths:
               $ref: '#/components/schemas/EncoreJobRequestBody'
         required: true
       responses:
-        "201":
+        '201':
           description: Created
           content:
             application/hal+json:
@@ -79,88 +80,89 @@ paths:
   /encoreJobs/search/findByStatus:
     get:
       tags:
-      - encorejob
+        - encorejob
       summary: Find EncoreJobs By Status
       description: Returns EncoreJobs according to the given Status
       operationId: executeSearch-encorejob-get
       parameters:
-      - name: status
-        in: query
-        schema:
-          type: string
-          enum:
-          - NEW
-          - QUEUED
-          - IN_PROGRESS
-          - SUCCESSFUL
-          - FAILED
-          - CANCELLED
-      - name: page
-        in: query
-        description: Zero-based page index (0..N)
-        required: false
-        schema:
-          minimum: 0
-          type: integer
-          default: 0
-      - name: size
-        in: query
-        description: The size of the page to be returned
-        required: false
-        schema:
-          minimum: 1
-          type: integer
-          default: 20
-      - name: sort
-        in: query
-        description: "Sorting criteria in the format: property,(asc|desc). Default\
-          \ sort order is ascending. Multiple sort criteria are supported."
-        required: false
-        schema:
-          type: array
-          items:
+        - name: status
+          in: query
+          schema:
             type: string
+            enum:
+              - NEW
+              - QUEUED
+              - IN_PROGRESS
+              - SUCCESSFUL
+              - FAILED
+              - CANCELLED
+        - name: page
+          in: query
+          description: Zero-based page index (0..N)
+          required: false
+          schema:
+            minimum: 0
+            type: integer
+            default: 0
+        - name: size
+          in: query
+          description: The size of the page to be returned
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            default: 20
+        - name: sort
+          in: query
+          description:
+            "Sorting criteria in the format: property,(asc|desc). Default\
+            \ sort order is ascending. Multiple sort criteria are supported."
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/PagedModelEntityModelEncoreJob'
-        "404":
+        '404':
           description: Not Found
   /encoreJobs/{id}:
     get:
       tags:
-      - encorejob
+        - encorejob
       description: get-encorejob
       operationId: getItemResource-encorejob-get
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/EntityModelEncoreJob'
-        "404":
+        '404':
           description: Not Found
     put:
       tags:
-      - encorejob
+        - encorejob
       description: update-encorejob
       operationId: putItemResource-encorejob-put
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -168,47 +170,47 @@ paths:
               $ref: '#/components/schemas/EncoreJobRequestBody'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/EntityModelEncoreJob'
-        "201":
+        '201':
           description: Created
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/EntityModelEncoreJob'
-        "204":
+        '204':
           description: No Content
     delete:
       tags:
-      - encorejob
+        - encorejob
       description: delete-encorejob
       operationId: deleteItemResource-encorejob-delete
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
-        "204":
+        '204':
           description: No Content
-        "404":
+        '404':
           description: Not Found
     patch:
       tags:
-      - encorejob
+        - encorejob
       description: patch-encorejob
       operationId: patchItemResource-encorejob-patch
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -216,30 +218,30 @@ paths:
               $ref: '#/components/schemas/EncoreJobRequestBody'
         required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/hal+json:
               schema:
                 $ref: '#/components/schemas/EntityModelEncoreJob'
-        "204":
+        '204':
           description: No Content
   /encoreJobs/{jobId}/cancel:
     post:
       tags:
-      - encorejob
+        - encorejob
       summary: Cancel an EncoreJob
       description: Cancels an EncoreJob with thw given JobId
       operationId: cancel
       parameters:
-      - name: jobId
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/hal+json:
@@ -248,12 +250,12 @@ paths:
   /queue:
     get:
       tags:
-      - queue
+        - queue
       summary: Get Queues
       description: Returns a list of queues (QueueItems)
       operationId: getQueue
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/hal+json:
@@ -284,19 +286,19 @@ components:
           type: string
     EntityModelEncoreJob:
       required:
-      - baseName
-      - createdDate
-      - debugOverlay
-      - id
-      - inputs
-      - logContext
-      - output
-      - outputFolder
-      - priority
-      - profile
-      - profileParams
-      - progress
-      - status
+        - baseName
+        - createdDate
+        - debugOverlay
+        - id
+        - inputs
+        - logContext
+        - output
+        - outputFolder
+        - priority
+        - profile
+        - profileParams
+        - progress
+        - status
       type: object
       properties:
         id:
@@ -350,14 +352,15 @@ components:
           default: 0
         segmentLength:
           type: number
-          description: Transcode segments of specified length in seconds in parallell.
+          description:
+            Transcode segments of specified length in seconds in parallell.
             Should be a multiple of target GOP.
           format: double
           nullable: true
           example: 19.2
         message:
           type: string
-          description: "The exception message, if the EncoreJob failed"
+          description: 'The exception message, if the EncoreJob failed'
           nullable: true
           readOnly: true
           example: input/output error
@@ -370,7 +373,8 @@ components:
           default: 0
         speed:
           type: number
-          description: The Encoding speed of the job (compared to it's play speed/input
+          description:
+            The Encoding speed of the job (compared to it's play speed/input
             duration)
           format: double
           nullable: true
@@ -392,7 +396,8 @@ components:
           example: 2021-04-19T07:20:43.819141+02:00
         debugOverlay:
           type: boolean
-          description: Instruct Encore to overlay encoding metadata on the encoded
+          description:
+            Instruct Encore to overlay encoding metadata on the encoded
             video stream
           default: false
         logContext:
@@ -400,7 +405,7 @@ components:
           additionalProperties:
             type: string
             description: Key/Values to append to the MDC log context
-            default: "{}"
+            default: '{}'
           description: Key/Values to append to the MDC log context
           default: {}
         seekTo:
@@ -417,7 +422,8 @@ components:
           example: 60.0
         thumbnailTime:
           type: number
-          description: Time in seconds for when the thumbnail should be picked. Overrides
+          description:
+            Time in seconds for when the thumbnail should be picked. Overrides
             profile configuration for thumbnails
           format: double
           nullable: true
@@ -437,27 +443,28 @@ components:
           description: The Job Status
           readOnly: true
           enum:
-          - NEW
-          - QUEUED
-          - IN_PROGRESS
-          - SUCCESSFUL
-          - FAILED
-          - CANCELLED
+            - NEW
+            - QUEUED
+            - IN_PROGRESS
+            - SUCCESSFUL
+            - FAILED
+            - CANCELLED
         _links:
           type: array
           items:
             $ref: '#/components/schemas/Link'
     Input:
       required:
-      - copyTs
-      - params
-      - type
-      - uri
+        - copyTs
+        - params
+        - type
+        - uri
       type: object
       properties:
         seekTo:
           type: number
-          description: Seek to given time in seconds before decoding input. Faster
+          description:
+            Seek to given time in seconds before decoding input. Faster
             than output seek (seekTo in encoreJob) but accuracy may depend on type
             of input. For some inputs a combination of the two might be preferred
           format: double
@@ -471,10 +478,10 @@ components:
           additionalProperties:
             type: string
             description: Input params required to properly decode input
-            example: "{\"ac\":\"2\"}"
+            example: '{"ac":"2"}'
           description: Input params required to properly decode input
           example:
-            ac: "2"
+            ac: '2'
         uri:
           type: string
           description: URI of input file
@@ -483,17 +490,17 @@ components:
           type: string
           description: Type of input
           enum:
-          - AudioVideo
-          - Video
-          - Audio
+            - AudioVideo
+            - Video
+            - Audio
       discriminator:
         propertyName: type
     MediaFile:
       required:
-      - file
-      - fileSize
-      - format
-      - type
+        - file
+        - fileSize
+        - format
+        - type
       type: object
       properties:
         fileSize:
@@ -542,19 +549,19 @@ components:
           $ref: '#/components/schemas/PageMetadata'
     EncoreJobRequestBody:
       required:
-      - baseName
-      - createdDate
-      - debugOverlay
-      - id
-      - inputs
-      - logContext
-      - output
-      - outputFolder
-      - priority
-      - profile
-      - profileParams
-      - progress
-      - status
+        - baseName
+        - createdDate
+        - debugOverlay
+        - id
+        - inputs
+        - logContext
+        - output
+        - outputFolder
+        - priority
+        - profile
+        - profileParams
+        - progress
+        - status
       type: object
       properties:
         id:
@@ -608,14 +615,15 @@ components:
           default: 0
         segmentLength:
           type: number
-          description: Transcode segments of specified length in seconds in parallell.
+          description:
+            Transcode segments of specified length in seconds in parallell.
             Should be a multiple of target GOP.
           format: double
           nullable: true
           example: 19.2
         message:
           type: string
-          description: "The exception message, if the EncoreJob failed"
+          description: 'The exception message, if the EncoreJob failed'
           nullable: true
           readOnly: true
           example: input/output error
@@ -628,7 +636,8 @@ components:
           default: 0
         speed:
           type: number
-          description: The Encoding speed of the job (compared to it's play speed/input
+          description:
+            The Encoding speed of the job (compared to it's play speed/input
             duration)
           format: double
           nullable: true
@@ -650,7 +659,8 @@ components:
           example: 2021-04-19T07:20:43.819141+02:00
         debugOverlay:
           type: boolean
-          description: Instruct Encore to overlay encoding metadata on the encoded
+          description:
+            Instruct Encore to overlay encoding metadata on the encoded
             video stream
           default: false
         logContext:
@@ -658,7 +668,7 @@ components:
           additionalProperties:
             type: string
             description: Key/Values to append to the MDC log context
-            default: "{}"
+            default: '{}'
           description: Key/Values to append to the MDC log context
           default: {}
         seekTo:
@@ -675,7 +685,8 @@ components:
           example: 60.0
         thumbnailTime:
           type: number
-          description: Time in seconds for when the thumbnail should be picked. Overrides
+          description:
+            Time in seconds for when the thumbnail should be picked. Overrides
             profile configuration for thumbnails
           format: double
           nullable: true
@@ -695,17 +706,17 @@ components:
           description: The Job Status
           readOnly: true
           enum:
-          - NEW
-          - QUEUED
-          - IN_PROGRESS
-          - SUCCESSFUL
-          - FAILED
-          - CANCELLED
+            - NEW
+            - QUEUED
+            - IN_PROGRESS
+            - SUCCESSFUL
+            - FAILED
+            - CANCELLED
     QueueItem:
       required:
-      - created
-      - id
-      - priority
+        - created
+        - id
+        - priority
       type: object
       properties:
         id:

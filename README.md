@@ -4,25 +4,29 @@ Http server listening for encore callbacks. When a callback indicating a success
 the listener can post jobId and Url on a redis queue.
 
 ## Usage
+
 ### Environment variables
 
 Service is configured with the environment variables below.
 
-| Variable | Description | Default value |
-| --- | --- | --- |
-| HOST | Host interface to listen on | 0.0.0.0 |
-| PORT | Port to listen on | 8000 |
-| REDIS_URL | URL to the redis server | redis://localhost:6379 |
-| REDIS_QUEUE | Name of the redis queue to post to | packaging-queue |
-| ENCORE_URL | URL to the encore instance | http://localhost:8000 |
+| Variable    | Description                        | Default value          |
+| ----------- | ---------------------------------- | ---------------------- |
+| HOST        | Host interface to listen on        | 0.0.0.0                |
+| PORT        | Port to listen on                  | 8000                   |
+| REDIS_URL   | URL to the redis server            | redis://localhost:6379 |
+| REDIS_QUEUE | Name of the redis queue to post to | packaging-queue        |
+| ENCORE_URL  | URL to the encore instance         | http://localhost:8000  |
 
 ### Running
+
 ```bash
 npm run start
 ```
 
 ## Development
+
 ### Generating encore client
+
 To update the encore client, fetch the latest encore api specification into `encore-api.yaml` and run the
 command below.
 
@@ -46,7 +50,8 @@ Add clear instructions on how to start development of the project here
 -->
 
 ### License
-This project is licensed under the MIT license, 
+
+This project is licensed under the MIT license,
 see [LICENSE](LICENSE).
 
 ### Contributing

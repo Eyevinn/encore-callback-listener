@@ -3,7 +3,25 @@
 import type { CancelablePromise } from './core/CancelablePromise';
 import { OpenAPI } from './core/OpenAPI';
 import { request as __request } from './core/request';
-import type { GetCollectionResourceEncorejobGet1Data, GetCollectionResourceEncorejobGet1Response, PostCollectionResourceEncorejobPostData, PostCollectionResourceEncorejobPostResponse, ExecuteSearchEncorejobGetData, ExecuteSearchEncorejobGetResponse, GetItemResourceEncorejobGetData, GetItemResourceEncorejobGetResponse, PutItemResourceEncorejobPutData, PutItemResourceEncorejobPutResponse, DeleteItemResourceEncorejobDeleteData, DeleteItemResourceEncorejobDeleteResponse, PatchItemResourceEncorejobPatchData, PatchItemResourceEncorejobPatchResponse, CancelData, CancelResponse, GetQueueResponse } from './types.gen';
+import type {
+  GetCollectionResourceEncorejobGet1Data,
+  GetCollectionResourceEncorejobGet1Response,
+  PostCollectionResourceEncorejobPostData,
+  PostCollectionResourceEncorejobPostResponse,
+  ExecuteSearchEncorejobGetData,
+  ExecuteSearchEncorejobGetResponse,
+  GetItemResourceEncorejobGetData,
+  GetItemResourceEncorejobGetResponse,
+  PutItemResourceEncorejobPutData,
+  PutItemResourceEncorejobPutResponse,
+  DeleteItemResourceEncorejobDeleteData,
+  DeleteItemResourceEncorejobDeleteResponse,
+  PatchItemResourceEncorejobPatchData,
+  PatchItemResourceEncorejobPatchResponse,
+  CancelData,
+  CancelResponse,
+  GetQueueResponse
+} from './types.gen';
 
 /**
  * get-encorejob
@@ -14,15 +32,19 @@ import type { GetCollectionResourceEncorejobGet1Data, GetCollectionResourceEncor
  * @returns PagedModelEntityModelEncoreJob OK
  * @throws ApiError
  */
-export const getCollectionResourceEncorejobGet1 = (data: GetCollectionResourceEncorejobGet1Data = {}): CancelablePromise<GetCollectionResourceEncorejobGet1Response> => { return __request(OpenAPI, {
+export const getCollectionResourceEncorejobGet1 = (
+  data: GetCollectionResourceEncorejobGet1Data = {}
+): CancelablePromise<GetCollectionResourceEncorejobGet1Response> => {
+  return __request(OpenAPI, {
     method: 'GET',
     url: '/encoreJobs',
     query: {
-        page: data.page,
-        size: data.size,
-        sort: data.sort
+      page: data.page,
+      size: data.size,
+      sort: data.sort
     }
-}); };
+  });
+};
 
 /**
  * create-encorejob
@@ -31,12 +53,16 @@ export const getCollectionResourceEncorejobGet1 = (data: GetCollectionResourceEn
  * @returns EntityModelEncoreJob Created
  * @throws ApiError
  */
-export const postCollectionResourceEncorejobPost = (data: PostCollectionResourceEncorejobPostData): CancelablePromise<PostCollectionResourceEncorejobPostResponse> => { return __request(OpenAPI, {
+export const postCollectionResourceEncorejobPost = (
+  data: PostCollectionResourceEncorejobPostData
+): CancelablePromise<PostCollectionResourceEncorejobPostResponse> => {
+  return __request(OpenAPI, {
     method: 'POST',
     url: '/encoreJobs',
     body: data.requestBody,
     mediaType: 'application/json'
-}); };
+  });
+};
 
 /**
  * Find EncoreJobs By Status
@@ -49,19 +75,23 @@ export const postCollectionResourceEncorejobPost = (data: PostCollectionResource
  * @returns PagedModelEntityModelEncoreJob OK
  * @throws ApiError
  */
-export const executeSearchEncorejobGet = (data: ExecuteSearchEncorejobGetData = {}): CancelablePromise<ExecuteSearchEncorejobGetResponse> => { return __request(OpenAPI, {
+export const executeSearchEncorejobGet = (
+  data: ExecuteSearchEncorejobGetData = {}
+): CancelablePromise<ExecuteSearchEncorejobGetResponse> => {
+  return __request(OpenAPI, {
     method: 'GET',
     url: '/encoreJobs/search/findByStatus',
     query: {
-        status: data.status,
-        page: data.page,
-        size: data.size,
-        sort: data.sort
+      status: data.status,
+      page: data.page,
+      size: data.size,
+      sort: data.sort
     },
     errors: {
-        404: 'Not Found'
+      404: 'Not Found'
     }
-}); };
+  });
+};
 
 /**
  * get-encorejob
@@ -70,16 +100,20 @@ export const executeSearchEncorejobGet = (data: ExecuteSearchEncorejobGetData = 
  * @returns EntityModelEncoreJob OK
  * @throws ApiError
  */
-export const getItemResourceEncorejobGet = (data: GetItemResourceEncorejobGetData): CancelablePromise<GetItemResourceEncorejobGetResponse> => { return __request(OpenAPI, {
+export const getItemResourceEncorejobGet = (
+  data: GetItemResourceEncorejobGetData
+): CancelablePromise<GetItemResourceEncorejobGetResponse> => {
+  return __request(OpenAPI, {
     method: 'GET',
     url: '/encoreJobs/{id}',
     path: {
-        id: data.id
+      id: data.id
     },
     errors: {
-        404: 'Not Found'
+      404: 'Not Found'
     }
-}); };
+  });
+};
 
 /**
  * update-encorejob
@@ -90,15 +124,19 @@ export const getItemResourceEncorejobGet = (data: GetItemResourceEncorejobGetDat
  * @returns void No Content
  * @throws ApiError
  */
-export const putItemResourceEncorejobPut = (data: PutItemResourceEncorejobPutData): CancelablePromise<PutItemResourceEncorejobPutResponse> => { return __request(OpenAPI, {
+export const putItemResourceEncorejobPut = (
+  data: PutItemResourceEncorejobPutData
+): CancelablePromise<PutItemResourceEncorejobPutResponse> => {
+  return __request(OpenAPI, {
     method: 'PUT',
     url: '/encoreJobs/{id}',
     path: {
-        id: data.id
+      id: data.id
     },
     body: data.requestBody,
     mediaType: 'application/json'
-}); };
+  });
+};
 
 /**
  * delete-encorejob
@@ -107,16 +145,20 @@ export const putItemResourceEncorejobPut = (data: PutItemResourceEncorejobPutDat
  * @returns void No Content
  * @throws ApiError
  */
-export const deleteItemResourceEncorejobDelete = (data: DeleteItemResourceEncorejobDeleteData): CancelablePromise<DeleteItemResourceEncorejobDeleteResponse> => { return __request(OpenAPI, {
+export const deleteItemResourceEncorejobDelete = (
+  data: DeleteItemResourceEncorejobDeleteData
+): CancelablePromise<DeleteItemResourceEncorejobDeleteResponse> => {
+  return __request(OpenAPI, {
     method: 'DELETE',
     url: '/encoreJobs/{id}',
     path: {
-        id: data.id
+      id: data.id
     },
     errors: {
-        404: 'Not Found'
+      404: 'Not Found'
     }
-}); };
+  });
+};
 
 /**
  * patch-encorejob
@@ -127,15 +169,19 @@ export const deleteItemResourceEncorejobDelete = (data: DeleteItemResourceEncore
  * @returns void No Content
  * @throws ApiError
  */
-export const patchItemResourceEncorejobPatch = (data: PatchItemResourceEncorejobPatchData): CancelablePromise<PatchItemResourceEncorejobPatchResponse> => { return __request(OpenAPI, {
+export const patchItemResourceEncorejobPatch = (
+  data: PatchItemResourceEncorejobPatchData
+): CancelablePromise<PatchItemResourceEncorejobPatchResponse> => {
+  return __request(OpenAPI, {
     method: 'PATCH',
     url: '/encoreJobs/{id}',
     path: {
-        id: data.id
+      id: data.id
     },
     body: data.requestBody,
     mediaType: 'application/json'
-}); };
+  });
+};
 
 /**
  * Cancel an EncoreJob
@@ -145,13 +191,15 @@ export const patchItemResourceEncorejobPatch = (data: PatchItemResourceEncorejob
  * @returns string OK
  * @throws ApiError
  */
-export const cancel = (data: CancelData): CancelablePromise<CancelResponse> => { return __request(OpenAPI, {
+export const cancel = (data: CancelData): CancelablePromise<CancelResponse> => {
+  return __request(OpenAPI, {
     method: 'POST',
     url: '/encoreJobs/{jobId}/cancel',
     path: {
-        jobId: data.jobId
+      jobId: data.jobId
     }
-}); };
+  });
+};
 
 /**
  * Get Queues
@@ -159,7 +207,9 @@ export const cancel = (data: CancelData): CancelablePromise<CancelResponse> => {
  * @returns QueueItem OK
  * @throws ApiError
  */
-export const getQueue = (): CancelablePromise<GetQueueResponse> => { return __request(OpenAPI, {
+export const getQueue = (): CancelablePromise<GetQueueResponse> => {
+  return __request(OpenAPI, {
     method: 'GET',
     url: '/queue'
-}); };
+  });
+};
