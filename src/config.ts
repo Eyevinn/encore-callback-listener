@@ -22,7 +22,7 @@ export function readConfig(): Config {
       ? undefined
       : {
           url: process.env.REDIS_URL || '',
-          queueName: process.env.REDIS_QUEUE_NAME || 'packaging-queue'
+          queueName: process.env.REDIS_QUEUE || 'packaging-queue'
         },
     encore: {
       url: process.env.ENCORE_URL || 'https://localhost:8080'
